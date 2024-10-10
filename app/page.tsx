@@ -85,7 +85,7 @@ const FindTopTalent = () => {
         return (
             () => window.removeEventListener("resize", updateVisibleCards)
         )
-    }, [])
+    }, [totalCards,visibleCards])
 
     const translation = cardRef.current ? `-${currentIndex * (cardRef.current.scrollWidth + 89)}px` : '0';
 
@@ -109,7 +109,7 @@ const FindTopTalent = () => {
 
                 <div className={`flex pb-[30px] w-full overflow-scroll lg:overflow-hidden`} >
                     <div className={`flex h-fit gap-[30px] md:gap-[45px] lg:gap-[89px] transition-transform ease-in-out  transform  duration-500 w-full`} style={{ transform: `translateX(${translation})` }}>
-                        {talents.map((talent: any, index: number) => { //keys:["id1","id2","id3","id4"]
+                        {talents.map((talent, index) => { //keys:["id1","id2","id3","id4"]
                             // const item = localeTalent.talents[key]; // Access talent data by key
                             return (<div ref={cardRef} className={`flex flex-col  p-[5px] min-w-[315px] w-[300px] md:min-w-[350px]  lg:w-[380px] lg:min-w-[380px] bg-white rounded-[8px] shadow-talent_shadow`} key={index}>
                                 <div className="flex flex-col w-full overflow-hidden h-[250px] md:h-[300px] lg:h-[350px]">
