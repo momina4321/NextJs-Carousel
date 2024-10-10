@@ -32,15 +32,11 @@ const FindTopTalent = () => {
 
     const prevSlide = () => {
         if (currentIndex > 0) {
-            // Check if there are previous cards to slide
             const newIndex = Math.max(currentIndex - visibleCards, 0);
             setCurrentIndex(newIndex);
             changeBtnStyle(newIndex)
             setClickCount(clickCount - 1)
-       //     setBtnStyle(true)
         }
-       
-
     };
 
 
@@ -62,20 +58,17 @@ const FindTopTalent = () => {
 
     const nextSlide = () => {
         if (currentIndex < totalCards - visibleCards) {
-            // Check if there are remaining cards to slide
             const newIndex = currentIndex + visibleCards
-            setCurrentIndex(newIndex); // Move to next group of cards
+            setCurrentIndex(newIndex); 
             setClickCount(clickCount + 1)
             changeBtnStyle(newIndex);
         }
-        // setStyle("-translate-x-50  2xl:-translate-x-30 overflow-x-visible")
     }
 
     useEffect(() => {
         const updateVisibleCards = () => {
             if (window.innerWidth >= 1480) {
-                setVisibleCards(3); // for larger screens
-                //        setgap(70)
+                setVisibleCards(3); 
             }
             else {
                 setVisibleCards(2)
